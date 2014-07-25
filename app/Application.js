@@ -27,12 +27,12 @@ Ext.define('Push.Application', {
 	init : function() {
 
         
-             var session = this.session = new Ext.data.Session();
-        
-        this.login = new Push.view.login.Login({
-            session: session,
-            autoShow: true
-        });
+             // var session = this.session = new Ext.data.Session();
+//         
+        // this.login = new Push.view.login.Login({
+            // session: session,
+            // autoShow: true
+        // });
 		// if ('nocss3' in Ext.Object.fromQueryString(location.search)) {
 			// Ext.supports.CSS3BorderRadius = false;
 			// Ext.getBody().addCls('x-nbr x-nlg');

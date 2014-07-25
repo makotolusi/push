@@ -9,7 +9,6 @@ Ext.define('Push.view.app.AppList', {
         'Ext.grid.*',
         'Ext.util.*',
         'Ext.toolbar.Paging',
-        'Ext.ux.PreviewPlugin',
         'Push.model.grid.ForumThread'
     ],
     xtype: 'app-list-grid',
@@ -46,7 +45,7 @@ Ext.define('Push.view.app.AppList', {
 
     initComponent: function(){
         this.width = this.themeInfo.width;
-        var pluginExpanded = true;
+        var pluginExpanded = false;
 
         // create the Data Store
         var store = Ext.create('Push.store.ForumThreads');
@@ -66,13 +65,13 @@ Ext.define('Push.view.app.AppList', {
             viewConfig: {
                 id: 'gv',
                 trackOver: false,
-                stripeRows: false,
-                plugins: [{
-                    ptype: 'preview',
-                    bodyField: 'excerpt',
-                    expanded: pluginExpanded,
-                    pluginId: 'preview'
-                }]
+                stripeRows: false
+                // plugins: [{
+                    // ptype: 'preview',
+                    // bodyField: 'excerpt',
+                    // expanded: pluginExpanded,
+                    // pluginId: 'preview'
+                // }]
             },
             // grid columns
             columns:[{
@@ -86,37 +85,34 @@ Ext.define('Push.view.app.AppList', {
                 // TODO: This poses an issue in subclasses of Grid now because Headers are now Components
                 // therefore the id will be registered in the ComponentManager and conflict. Need a way to
                 // add additional CSS classes to the rendered cells.
-                id: 'topic',
                 text: "应用名称",
                 dataIndex: 'title',
-                flex: 1,
-                renderer: this.renderTopic,
+                flex:1,
+                // renderer: this.renderTopic,
                 sortable: false
             },{
                 text: "AppKey_android",
                 dataIndex: 'username',
-                width: 100,
+                width: 150,
                 hidden: false,
                 sortable: true
             },{
                 text: "SecretKey_android",
                 dataIndex: 'replycount',
-                width: 70,
+                width:150,
                 align: 'right',
                 sortable: true
             },{
-                id: 'last',
                 text: "AppKey_ios",
                 dataIndex: 'lastpost',
                 width: 150,
-                renderer: this.renderLast,
+                // renderer: this.renderLast,
                 sortable: true
             },{
-                id: 'last1',
                 text: "SecretKey_ios",
                 dataIndex: 'lastpost',
                 width: 150,
-                renderer: this.renderLast,
+                // renderer: this.renderLast,
                 sortable: true
             },   {
                 menuDisabled: true,
@@ -139,21 +135,7 @@ Ext.define('Push.view.app.AppList', {
             }
             ],
             // inline buttons
-				dockedItems : [{
-					xtype : 'toolbar',
-					dock : 'bottom',
-					ui : 'footer',
-					layout : {
-						pack : 'center'
-					},
-					items : [{
-						minWidth : 80,
-						text : 'Save'
-					}, {
-						minWidth : 80,
-						text : 'Cancel'
-					}]
-				}, {
+				dockedItems : [ {
 					xtype : 'toolbar',
 					items : [{
 						xtype : 'textfield',
@@ -187,20 +169,22 @@ Ext.define('Push.view.app.AppList', {
             // paging bar on the bottom
             bbar: Ext.create('Ext.PagingToolbar', {
                 store: store,
-                displayInfo: true,
-                displayMsg: 'Displaying topics {0} - {1} of {2}',
-                emptyMsg: "No topics to display",
+                // displayInfo: false,
+                // displayMsg: 'Displaying topics {0} - {1} of {2}',
+                // emptyMsg: "No topics to display",
                 items:[
-                    '-', {
-                    text: pluginExpanded ? 'Hide Preview' : 'Show Preview',
-                    pressed: pluginExpanded,
-                    enableToggle: true,
-                    toggleHandler: function(btn, pressed) {
-                        var preview = Ext.getCmp('gv').getPlugin('preview');
-                        preview.toggleExpanded(pressed);
-                        btn.setText(pressed ? 'Hide Preview' : 'Show Preview');
-                    }
-                }]
+                    '-'
+                    // , {
+                    // text: pluginExpanded ? 'Hide Preview' : 'Show Preview',
+                    // pressed: pluginExpanded,
+                    // enableToggle: true,
+                    // toggleHandler: function(btn, pressed) {
+                        // var preview = Ext.getCmp('gv').getPlugin('preview');
+                        // preview.toggleExpanded(pressed);
+                        // btn.setText(pressed ? 'Hide Preview' : 'Show Preview');
+                    // }
+                // }
+                ]
             })
         });
         this.callParent();
