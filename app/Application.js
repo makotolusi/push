@@ -13,7 +13,7 @@ Ext.define('Push.Application', {
 
 	views : [
 'login.Login',
-	'app.AppList', 'push.PushList', 
+	'app.AppList', 'push.PushList', 'push.BasicTabs',
 	'navigation.Breadcrumb', 'Header', 'ContentPanel', 'navigation.Tree', 'grid.ArrayGrid', 'grid.Paging', 'grid.GridPlugins', 'form.HBoxLayoutForm'
 	],
 

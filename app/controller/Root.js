@@ -20,7 +20,7 @@ Ext.define('Push.controller.Root', {
 	},
 	onEnterApp : function(data) {
 		Ext.widget('array-grid',{a:'111'});
-		this.redirectTo('array-grid');
+		// this.redirectTo('array-grid');
 		
 	},
 });

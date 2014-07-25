@@ -1,128 +1,139 @@
 /**
- * This example demonstrates several grid plugins.
+ * This example demonstrates using a paging display.
  */
 Ext.define('Push.view.push.PushList', {
-	extend : 'Ext.panel.Panel',
+    extend: 'Ext.grid.Panel',
 
-	requires : ['Ext.grid.Panel', 'Ext.grid.column.Number', 'Ext.grid.column.Date', 'Ext.grid.column.Boolean', 'Ext.grid.View', 'Ext.selection.CheckboxModel', 'Push.model.grid.Financial'],
+    requires: [
+        'Ext.data.*',
+        'Ext.grid.*',
+        'Ext.util.*',
+        'Ext.toolbar.Paging',
+        'Push.model.grid.ForumThread'
+    ],
+    xtype: 'push-list-grid',
 
-	xtype : 'push-list',
+    //<example>
+    exampleTitle: '应用列表',
+    otherContent: [{
+        type: 'Store',
+        path: 'app/store/ForumThreads.js'
+    },{
+        type: 'Model',
+        path: 'app/model/grid/ForumThread.js'
+    }],
+    themes: {
+        classic: {
+            width: 1000,
+            percentChangeColumnWidth: 75,
+            lastUpdatedColumnWidth: 85
+        },
+        neptune: {
+            width: 1000,
+            percentChangeColumnWidth: 100,
+            lastUpdatedColumnWidth: 115
+        }
+    },
+    //</example>
 
-	bodyStyle : 'background-color:transparent',
-	//<example>
-	exampleTitle : 'Grid Plugins',
-	otherContent : [{
-		type : 'Model',
-		path : 'app/model/grid/Financial.js'
-	}],
-	themes : {
-		classic : {
-			width : 700,
-			percentChangeColumnWidth : 75,
-			lastUpdatedColumnWidth : 85
-		},
-		neptune : {
-			width : 750,
-			percentChangeColumnWidth : 100,
-			lastUpdatedColumnWidth : 115
-		}
-	},
-	//</example>
+    height: 700,
+    width: 1850,
+    frame: true,
+    title: '应用列表',
+    disableSelection: true,
+    loadMask: true,
 
-	statics : {
+    initComponent: function(){
+        // this.width = this.themeInfo.width;
+        var pluginExpanded = false;
 
-		hasDescriptions : false,
-
-		dummyData : [[0, '3m Co', 71.72, 0.02, 0.03, '9/1 12:00am', 'Manufacturing'], [1, 'Alcoa Inc', 29.01, 0.42, 1.47, '9/1 12:00am', 'Manufacturing'], [2, 'Altria Group Inc', 83.81, 0.28, 0.34, '9/1 12:00am', 'Manufacturing'], [3, 'American Express Company', 52.55, 0.01, 0.02, '9/1 12:00am', 'Finance'], [4, 'American International Group, Inc.', 64.13, 0.31, 0.49, '9/1 12:00am', 'Services'], [5, 'AT&T Inc.', 31.61, -0.48, -1.54, '9/1 12:00am', 'Services'], [6, 'Boeing Co.', 75.43, 0.53, 0.71, '9/1 12:00am', 'Manufacturing'], [7, 'Caterpillar Inc.', 67.27, 0.92, 1.39, '9/1 12:00am', 'Services'], [8, 'Citigroup, Inc.', 49.37, 0.02, 0.04, '9/1 12:00am', 'Finance'], [9, 'E.I. du Pont de Nemours and Company', 40.48, 0.51, 1.28, '9/1 12:00am', 'Manufacturing'], [10, 'Exxon Mobil Corp', 68.1, -0.43, -0.64, '9/1 12:00am', 'Manufacturing'], [11, 'General Electric Company', 34.14, -0.08, -0.23, '9/1 12:00am', 'Manufacturing'], [12, 'General Motors Corporation', 30.27, 1.09, 3.74, '9/1 12:00am', 'Automotive'], [13, 'Hewlett-Packard Co.', 36.53, -0.03, -0.08, '9/1 12:00am', 'Computer'], [14, 'Honeywell Intl Inc', 38.77, 0.05, 0.13, '9/1 12:00am', 'Manufacturing'], [15, 'Intel Corporation', 19.88, 0.31, 1.58, '9/1 12:00am', 'Computer'], [16, 'International Business Machines', 81.41, 0.44, 0.54, '9/1 12:00am', 'Computer'], [17, 'Johnson & Johnson', 64.72, 0.06, 0.09, '9/1 12:00am', 'Medical'], [18, 'JP Morgan & Chase & Co', 45.73, 0.07, 0.15, '9/1 12:00am', 'Finance'], [19, 'McDonald\'s Corporation', 36.76, 0.86, 2.40, '9/1 12:00am', 'Food'], [20, 'Merck & Co., Inc.', 40.96, 0.41, 1.01, '9/1 12:00am', 'Medical'], [21, 'Microsoft Corporation', 25.84, 0.14, 0.54, '9/1 12:00am', 'Computer'], [22, 'Pfizer Inc', 27.96, 0.4, 1.45, '9/1 12:00am', 'Medical'], [23, 'The Coca-Cola Company', 45.07, 0.26, 0.58, '9/1 12:00am', 'Food'], [24, 'The Home Depot, Inc.', 34.64, 0.35, 1.02, '9/1 12:00am', 'Retail'], [25, 'The Procter & Gamble Company', 61.91, 0.01, 0.02, '9/1 12:00am', 'Manufacturing'], [26, 'United Technologies Corporation', 63.26, 0.55, 0.88, '9/1 12:00am', 'Computer'], [27, 'Verizon Communications', 35.57, 0.39, 1.11, '9/1 12:00am', 'Services'], [28, 'Wal-Mart Stores, Inc.', 45.45, 0.73, 1.63, '9/1 12:00am', 'Retail'], [29, 'Walt Disney Company (The) (Holding Company)', 29.89, 0.24, 0.81, '9/1 12:00am', 'Services']],
-
-		getDummyData : function() {
-			if (!this.hasDescriptions) {
-				// add in some dummy descriptions
-				for (var i = 0; i < this.dummyData.length; i++) {
-					this.dummyData[i].push('Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed metus nibh, sodales a, porta at, vulputate eget, dui. Pellentesque ut nisl. ');
-				}
-				this.hasDescriptions = true;
-			}
-			return this.dummyData;
-		},
-
-		getLocalStore : function() {
-			return Ext.create('Ext.data.ArrayStore', {
-				model : 'Push.model.grid.Financial',
-				data : this.getDummyData()
-			});
-		}
-	},
-
-	height : 1400,
-	width : 700,
-
-	initComponent : function() {
-		var me = this;
-		Ext.applyIf(me, {
-			defaults : {
-				margin : '0 0 10 0'
-			},
-			items : [{
-				xtype : 'form-hboxlayout'
-			}, {
-				xtype : 'gridpanel',
-				itemId : 'grid4',
-				store : me.statics().getLocalStore(),
-				columns : [{
-					text : "Company",
-					flex : 1,
-					sortable : true,
-					dataIndex : 'company'
-				}, {
-					text : "Price",
-					width : 120,
-					sortable : true,
-					formatter : 'usMoney',
-					dataIndex : 'price'
-				}, {
-					text : "Change",
-					width : 120,
-					sortable : true,
-					dataIndex : 'change'
-				}, {
-					text : "% Change",
-					width : 120,
-					sortable : true,
-					dataIndex : 'pctChange'
-				}, {
-					text : "Last Updated",
-					width : 120,
-					sortable : true,
-					formatter : 'date("m/d/Y")',
-					dataIndex : 'lastChange'
-				}],
-				columnLines : true,
-				selModel : Ext.create('Ext.selection.CheckboxModel', {
-					listeners : {
-						selectionchange : function(sm, selections) {
-							var grid4 = Ext.ComponentQuery.query( 'grid-plugins gridpanel#grid4' )[0];
-							grid4.down('#removeButton').setDisabled(selections.length === 0);
-						}
-					}
-				}),
-
-				// inline buttons
-				dockedItems : [{
-					xtype : 'toolbar',
-					dock : 'bottom',
-					ui : 'footer',
-					layout : {
-						pack : 'center'
-					},
-					items : [{
-						minWidth : 80,
-						text : 'Save'
-					}, {
-						minWidth : 80,
-						text : 'Cancel'
-					}]
-				}, {
+        // create the Data Store
+        var store = Ext.create('Push.store.ForumThreads');
+        store.proxy.extraParams = {active: '1'};
+		// store.load({
+		    // params: {
+		        // group: 3,
+		        // type: 'user'
+		    // },
+		    // callback: function(records, operation, success) {
+		        // // do something after the load finishes
+		    // },
+		    // scope: this
+		// });
+        Ext.apply(this, {
+            store: store,
+            viewConfig: {
+                id: 'gv',
+                trackOver: false,
+                stripeRows: false
+                // plugins: [{
+                    // ptype: 'preview',
+                    // bodyField: 'excerpt',
+                    // expanded: pluginExpanded,
+                    // pluginId: 'preview'
+                // }]
+            },
+            // grid columns
+            columns:[{
+                text: "推送ID",
+                dataIndex: 'username',
+                width: 100,
+                hidden: false,
+                sortable: true
+            },{
+                // id assigned so we can apply custom css (e.g. .x-grid-cell-topic b { color:#333 })
+                // TODO: This poses an issue in subclasses of Grid now because Headers are now Components
+                // therefore the id will be registered in the ComponentManager and conflict. Need a way to
+                // add additional CSS classes to the rendered cells.
+                text: "标题",
+                dataIndex: 'title',
+                flex:1,
+                // renderer: this.renderTopic,
+                sortable: false
+            },{
+                text: "用户群",
+                dataIndex: 'username',
+                width: 150,
+                hidden: false,
+                sortable: true
+            },{
+                text: "SecretKey_android",
+                dataIndex: 'replycount',
+                width:150,
+                align: 'right',
+                sortable: true
+            },{
+                text: "AppKey_ios",
+                dataIndex: 'lastpost',
+                width: 150,
+                // renderer: this.renderLast,
+                sortable: true
+            },{
+                text: "SecretKey_ios",
+                dataIndex: 'lastpost',
+                width: 150,
+                // renderer: this.renderLast,
+                sortable: true
+            },   {
+                menuDisabled: true,
+                  text: "进入",
+                sortable: false,
+                xtype: 'actioncolumn',
+                width: 100,
+                items: [{
+                    iconCls: 'application-go',
+                    id: 'enter',
+                    tooltip: '进入',
+                         handler: function(grid, rowIndex, colIndex) {
+                         	var g = Push.getApplication().getController('Root');
+                         	g.onEnterApp({a:'1'});
+                    }
+                }]
+            }
+            ],
+            // inline buttons
+            
+				dockedItems : [ {
 					xtype : 'toolbar',
 					items : [{
 						xtype : 'textfield',
@@ -131,6 +142,8 @@ Ext.define('Push.view.push.PushList', {
 						name : 'title'
 					},{
 						text : '查询',
+						id:'btnQuery'
+						
 						// tooltip : 'Add a new row',
 						// iconCls : 'add'
 					}
@@ -151,14 +164,46 @@ Ext.define('Push.view.push.PushList', {
 					// }
 					]
 				}],
+            // paging bar on the bottom
+            bbar: Ext.create('Ext.PagingToolbar', {
+                store: store,
+                // displayInfo: false,
+                // displayMsg: 'Displaying topics {0} - {1} of {2}',
+                // emptyMsg: "No topics to display",
+                items:[
+                    '-'
+                    // , {
+                    // text: pluginExpanded ? 'Hide Preview' : 'Show Preview',
+                    // pressed: pluginExpanded,
+                    // enableToggle: true,
+                    // toggleHandler: function(btn, pressed) {
+                        // var preview = Ext.getCmp('gv').getPlugin('preview');
+                        // preview.toggleExpanded(pressed);
+                        // btn.setText(pressed ? 'Hide Preview' : 'Show Preview');
+                    // }
+                // }
+                ]
+            })
+        });
+        this.callParent();
+    },
 
-				height : 300,
-				frame : true,
-				title : 'Support for standard Panel features such as framing, buttons and toolbars',
-				iconCls : 'icon-grid'
-			}]
-		});
+    afterRender: function(){
+        this.callParent(arguments);
+        this.getStore().loadPage(1);
+    },
 
-		me.callParent(arguments);
-	}
-}); 
+    renderTopic: function(value, p, model) {
+        return Ext.String.format(
+            '<b><a href="http://sencha.com/forum/showthread.php?t={2}" target="_blank">{0}</a></b> <a href="http://sencha.com/forum/forumdisplay.php?f={3}" target="_blank">{1} Forum</a>',
+            value,
+            model.get('forumtitle'),
+            model.getId(),
+            model.get('forumid')
+        );
+    },
+
+    renderLast: function(value, p, model) {
+        return Ext.String.format('{0}<br/>by {1}', Ext.Date.dateFormat(value, 'M j, Y, g:i a'), model.get('lastposter'));
+    }
+});
