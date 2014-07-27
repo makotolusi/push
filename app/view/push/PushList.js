@@ -138,7 +138,14 @@ Ext.define('Push.view.push.PushList', {
 					items : [{
 						xtype : 'textfield',
 						fieldLabel : '应用标题',
-						anchor : '-5',
+						name : 'title'
+					},{
+						xtype : 'textfield',
+						fieldLabel : '应用标题',
+						name : 'title'
+					},{
+						xtype : 'textfield',
+						fieldLabel : '应用标题',
 						name : 'title'
 					},{
 						text : '查询',
@@ -146,22 +153,12 @@ Ext.define('Push.view.push.PushList', {
 						
 						// tooltip : 'Add a new row',
 						// iconCls : 'add'
+					},{
+						text : '创建推送',
+						   handler: function() {
+						   	Ext.widget('push-from');
+                    }
 					}
-					// , {
-						// text : 'Add Something',
-						// tooltip : 'Add a new row',
-						// iconCls : 'add'
-					// }, '-', {
-						// text : 'Options',
-						// tooltip : 'Set options',
-						// iconCls : 'option'
-					// }, '-', {
-						// itemId : 'removeButton',
-						// text : 'Remove Something',
-						// tooltip : 'Remove the selected item',
-						// iconCls : 'remove',
-						// disabled : true
-					// }
 					]
 				}],
             // paging bar on the bottom
