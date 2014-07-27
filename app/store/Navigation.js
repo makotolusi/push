@@ -97,16 +97,16 @@ Ext.define('Push.store.Navigation', {
                 id: 'tabs',
                 expanded: true,
                 children: [
-                    { id: 'basic-tabs', text: 'Basic Tabs', leaf: true },
-                    { id: 'plain-tabs', text: 'Plain Tabs', leaf: true },
-                    { id: 'framed-tabs', text: 'Framed Tabs', leaf: true },
-                    { id: 'icon-tabs', text: 'Icon Tabs', leaf: true },
-                    { id: 'ajax-tabs', text: 'Ajax Tabs', leaf: true },
-                    { id: 'advanced-tabs', text: 'Advanced Tabs', leaf: true },
-                    { id: 'navigation-tabs', text: 'Navigation Tabs', leaf: true },
-                    { id: 'side-navigation-tabs', text: 'Side Navigation Tabs', leaf: true },
-                    { id: 'header-tabs', text: 'Header Tabs', leaf: true },
-                    { id: 'reorderable-tabs', text: 'Reorderable Tabs', leaf: true }
+                    // { id: 'basic-tabs', text: 'Basic Tabs', leaf: true },
+                    // { id: 'plain-tabs', text: 'Plain Tabs', leaf: true },
+                    // { id: 'framed-tabs', text: 'Framed Tabs', leaf: true },
+                    // { id: 'icon-tabs', text: 'Icon Tabs', leaf: true },
+                    // { id: 'ajax-tabs', text: 'Ajax Tabs', leaf: true },
+                    // { id: 'advanced-tabs', text: 'Advanced Tabs', leaf: true },
+                    // { id: 'navigation-tabs', text: 'Navigation Tabs', leaf: true },
+                    // { id: 'side-navigation-tabs', text: 'Side Navigation Tabs', leaf: true },
+                    // { id: 'header-tabs', text: 'Header Tabs', leaf: true },
+                    // { id: 'reorderable-tabs', text: 'Reorderable Tabs', leaf: true }
                 ]
             },
             {

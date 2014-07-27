@@ -1,6 +1,6 @@
-Ext.define('Push.view.push.TabController', {
+Ext.define('Push.view.push.PushListTabController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.tab-view',
+    alias: 'controller.push-list-tab-view',
 
     onTabChange: function(tabs, newTab, oldTab) {
         Ext.suspendLayouts();

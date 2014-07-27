@@ -1,14 +1,14 @@
 /**
  * Demonstrates a default configuration of a tab panel.
  */
-Ext.define('Push.view.push.BasicTabs', {
+Ext.define('Push.view.push.PushListTabs', {
     extend: 'Ext.tab.Panel',
-    xtype: 'basic-tabs',
-    controller: 'tab-view',
+    xtype: 'push-list-tabs',
+    controller: 'push-list-tab-view',
     
     //<example>
     requires: [
-        'Push.view.push.TabController'
+        'Push.view.push.PushListTabController'
     ],
     otherContent: [{
         type: 'ViewController',

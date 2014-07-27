@@ -13,12 +13,12 @@ Ext.define('Push.Application', {
 
 	views : [
 'login.Login',
-	'app.AppList', 'push.PushList', 'push.BasicTabs',
+	'app.AppList', 'push.PushList', 'push.PushListTabs',
 	'navigation.Breadcrumb', 'Header', 'ContentPanel', 'navigation.Tree', 'grid.ArrayGrid', 'grid.Paging', 'grid.GridPlugins', 'form.HBoxLayoutForm'
 	],
 
 	controllers : [
-	'Global', 'Root'
+	'Global'
 	// TODO: add controllers here
 	],
 
