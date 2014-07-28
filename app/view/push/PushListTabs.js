@@ -15,7 +15,6 @@ Ext.define('Push.view.push.PushListTabs', {
         path: 'app/view/push/TabController.js'
     }],
     exampleTitle: 'Basic Tabs',
-    //</example>
     width: 1200,
     height: 700,
     defaults: {
