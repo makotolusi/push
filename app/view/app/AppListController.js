@@ -11,10 +11,6 @@ Ext.define('Push.view.app.AppListController', {
         }
     },
 	onEnter : function(grid, rowIndex, colIndex) {
-		
-	
-		   // Ext.container.Viewport.setActiveItem(1);
-		    	
 		 this.redirectTo('push-list-tabs');
 		
 			 // var me = this,
