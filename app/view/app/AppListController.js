@@ -12,7 +12,7 @@ Ext.define('Push.view.app.AppListController', {
     },
 	onEnter : function(grid, rowIndex, colIndex) {
 		 this.redirectTo('push-list-tabs');
-			 // var me = this,
+		 
             // contentPanel = Ext.getCmp('content-panel');
                          // contentPanel.removeAll(true);
 		// console.log('-------onenter');
