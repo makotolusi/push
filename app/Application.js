@@ -12,9 +12,9 @@ Ext.define('Push.Application', {
 	    'Push.view.login.Login'],
 
 	views : [
-'login.Login',
+'login.Login','form.FieldTypes',
 	'app.AppList', 'push.PushList', 'push.PushListTabs',
-	'navigation.Breadcrumb', 'Header', 'ContentPanel', 'navigation.Tree', 'grid.ArrayGrid', 'grid.Paging', 'grid.GridPlugins', 'form.HBoxLayoutForm'
+	'navigation.Breadcrumb', 'Header', 'ContentPanel', 'navigation.Tree', 'grid.ArrayGrid', 'grid.Paging', 'grid.GridPlugins', 'form.HBoxLayoutForm','form.RadioGroupForm'
 	],
 
 	controllers : [
@@ -22,7 +22,9 @@ Ext.define('Push.Application', {
 	// TODO: add controllers here
 	],
 
-	stores : [],
+	stores : ['States'],
+	
+	model:['State'],
 
 	init : function() {
 

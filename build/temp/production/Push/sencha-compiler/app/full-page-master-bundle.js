@@ -1,2 +1,2 @@
 // @tag full-page
-// @require /Users/lusi/dev/push/app.js
+// @require D:\github\push\app.js

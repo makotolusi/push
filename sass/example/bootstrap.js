@@ -2318,21 +2318,25 @@ Ext.ClassManager.addNameAlternateMappings({
   "Push.Application": [],
   "Push.LoginManager": [],
   "Push.controller.Global": [],
-  "Push.controller.Login": [],
   "Push.controller.Main": [],
   "Push.controller.Root": [],
   "Push.model.Base": [],
   "Push.model.Company": [],
+  "Push.model.State": [],
   "Push.model.grid.Financial": [],
   "Push.model.grid.ForumThread": [],
   "Push.model.user.User": [],
   "Push.store.Companies": [],
   "Push.store.ForumThreads": [],
   "Push.store.Navigation": [],
+  "Push.store.States": [],
   "Push.view.ContentPanel": [],
   "Push.view.Header": [],
   "Push.view.app.AppList": [],
+  "Push.view.app.AppListController": [],
+  "Push.view.form.FieldTypes": [],
   "Push.view.form.HBoxLayoutForm": [],
+  "Push.view.form.RadioGroupForm": [],
   "Push.view.grid.ArrayGrid": [],
   "Push.view.grid.GridPlugins": [],
   "Push.view.grid.Paging": [],
@@ -2344,7 +2348,10 @@ Ext.ClassManager.addNameAlternateMappings({
   "Push.view.main.MainModel": [],
   "Push.view.navigation.Breadcrumb": [],
   "Push.view.navigation.Tree": [],
-  "Push.view.push.PushList": []
+  "Push.view.push.PushForm": [],
+  "Push.view.push.PushList": [],
+  "Push.view.push.PushListTabController": [],
+  "Push.view.push.PushListTabs": []
 });
 Ext.ClassManager.addNameAliasMappings({
   "Ext.AbstractManager": [],
@@ -3679,11 +3686,11 @@ Ext.ClassManager.addNameAliasMappings({
   "Push.Application": [],
   "Push.LoginManager": [],
   "Push.controller.Global": [],
-  "Push.controller.Login": [],
   "Push.controller.Main": [],
   "Push.controller.Root": [],
   "Push.model.Base": [],
   "Push.model.Company": [],
+  "Push.model.State": [],
   "Push.model.grid.Financial": [],
   "Push.model.grid.ForumThread": [],
   "Push.model.user.User": [],
@@ -3696,6 +3703,9 @@ Ext.ClassManager.addNameAliasMappings({
   "Push.store.Navigation": [
     "store.navigation"
   ],
+  "Push.store.States": [
+    "store.states"
+  ],
   "Push.view.ContentPanel": [
     "widget.contentPanel"
   ],
@@ -3705,8 +3715,17 @@ Ext.ClassManager.addNameAliasMappings({
   "Push.view.app.AppList": [
     "widget.app-list-grid"
   ],
+  "Push.view.app.AppListController": [
+    "controller.app-list-view"
+  ],
+  "Push.view.form.FieldTypes": [
+    "widget.form-fieldtypes"
+  ],
   "Push.view.form.HBoxLayoutForm": [
     "widget.form-hboxlayout"
+  ],
+  "Push.view.form.RadioGroupForm": [
+    "widget.form-radiogroup"
   ],
   "Push.view.grid.ArrayGrid": [
     "widget.array-grid"
@@ -3739,8 +3758,17 @@ Ext.ClassManager.addNameAliasMappings({
   "Push.view.navigation.Tree": [
     "widget.navigation-tree"
   ],
+  "Push.view.push.PushForm": [
+    "widget.push-from"
+  ],
   "Push.view.push.PushList": [
-    "widget.push-list"
+    "widget.push-list-grid"
+  ],
+  "Push.view.push.PushListTabController": [
+    "controller.push-list-tab-view"
+  ],
+  "Push.view.push.PushListTabs": [
+    "widget.push-list-tabs"
   ]
 });
 Ext.setVersion("ext", "5.0.0.970");

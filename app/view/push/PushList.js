@@ -44,6 +44,24 @@ Ext.define('Push.view.push.PushList', {
     loadMask: true,
 
     initComponent: function(){
+    	var states = Ext.create('Ext.data.Store', {
+    fields: ['abbr', 'name'],
+    data : [
+        {"abbr":"AL", "name":"IOS"},
+        {"abbr":"AK", "name":"ANDROID"}
+        //...
+    ]
+});
+
+// Create the combo box, attached to the states data store
+var combo=Ext.create('Ext.form.ComboBox', {
+    fieldLabel: '客户端',
+    store: states,
+    queryMode: 'local',
+    displayField: 'name',
+    valueField: 'abbr',
+    renderTo: Ext.getBody()
+});
         // this.width = this.themeInfo.width;
         var pluginExpanded = false;
 
@@ -137,17 +155,9 @@ Ext.define('Push.view.push.PushList', {
 					xtype : 'toolbar',
 					items : [{
 						xtype : 'textfield',
-						fieldLabel : '应用标题',
+						fieldLabel : '推送标题',
 						name : 'title'
-					},{
-						xtype : 'textfield',
-						fieldLabel : '应用标题',
-						name : 'title'
-					},{
-						xtype : 'textfield',
-						fieldLabel : '应用标题',
-						name : 'title'
-					},{
+					},combo,{
 						text : '查询',
 						id:'btnQuery'
 						
@@ -156,7 +166,8 @@ Ext.define('Push.view.push.PushList', {
 					},{
 						text : '创建推送',
 						   handler: function() {
-						   	Ext.widget('push-from');
+						   	var win=Ext.create('Push.view.push.PushForm');
+						   	win.show();
                     }
 					}
 					]
