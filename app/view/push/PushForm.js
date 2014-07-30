@@ -31,13 +31,13 @@ Ext.define('Push.view.push.PushForm', {
 			layout : 'anchor',
 			items : [{
 				xtype : 'textfield',
-				width : 400,
+				width : 550,
 				name : 'textfield1',
 				fieldLabel : '推送标题'
 			}, {
 				xtype : 'textareafield',
-				width : 400,
-				height : 100,
+					width : 550,
+				height : 150,
 				name : 'textarea1',
 				fieldLabel : '推送内容'
 			}, {
@@ -61,7 +61,7 @@ Ext.define('Push.view.push.PushForm', {
 				xtype : 'radiogroup',
 				fieldLabel : '推送方式',
 				cls : 'x-check-group-alt',
-				columns : [100, 100, 100, 100, 100],
+				columns : [100, 100],
 				vertical : true,
 				items : [{
 					boxLabel : 'Item 1',
@@ -86,6 +86,48 @@ Ext.define('Push.view.push.PushForm', {
 				style : 'opacity:.3',
 				disabled : true,
 				fieldLabel : '定时时间'
+			}, {
+				xtype : 'fieldcontainer',
+				fieldLabel : '勿扰控制',
+				layout : 'hbox',
+				combineErrors : false,
+				defaults : {
+					hideLabel : true
+				},
+				items : [{
+					name : 'hours',
+					xtype : 'numberfield',
+					width : 50,
+					value:'8',
+					allowBlank : false
+				}, {
+					xtype : 'displayfield',
+					value : ':'
+				}, {
+					name : 'minutes',
+					xtype : 'numberfield',
+					value:'0',
+					width : 50,
+					allowBlank : false
+				}, {
+					xtype : 'displayfield',
+					value : '到'
+				}, {
+					name : 'hours',
+					xtype : 'numberfield',
+					value:'22',
+					width : 50,
+					allowBlank : false
+				}, {
+					xtype : 'displayfield',
+					value : ':'
+				}, {
+					name : 'minutes',
+					xtype : 'numberfield',
+					value:'0',
+					width : 50,
+					allowBlank : false
+				}]
 			}]
 		}, {
 			xtype : 'fieldset',
@@ -94,46 +136,47 @@ Ext.define('Push.view.push.PushForm', {
 			},
 			width : 620,
 			title : '推送内容',
-			defaultType : 'checkbox', // each item will be a checkbox
 			layout : 'anchor',
 			items : [{
 				xtype : 'fieldcontainer',
 				layout : 'hbox',
 				combineErrors : true,
 				defaultType : 'textfield',
-				defaults : {
-					hideLabel : 'true'
-				},
 				items : [{
-					name : '内容类型',
-					xtype : 'combobox',
-					width : 200,
-					displayField : 'state',
-					store : {
-						type : 'states'
-					},
-
-					minChars : 0,
-					queryMode : 'local',
-					typeAhead : true
-				}, {
-					name : '内容来源',
-					xtype : 'combobox',
-					width : 200,
-					displayField : 'state2',
-					store : {
-						type : 'states'
-					},
-
-					minChars : 0,
-					queryMode : 'local',
-					typeAhead : true
+					xtype : 'container',
+					layout : 'hbox',
+					defaultType : 'combo',
+					margin : '0 0 5 0',
+					items : [{
+						fieldLabel : '推送类型',
+						name : 'email',
+						flex : 1,
+					}, {
+						fieldLabel : '来源类型',
+						name : 'phone',
+						style : 'opacity:.3',
+						disabled : true
+					}]
 				}]
 			}, {
-				xtype : 'textfield',
-				width : 400,
-				name : 'textfield1',
-				fieldLabel : '推送标题'
+				xtype : 'fieldcontainer',
+				layout : 'hbox',
+				combineErrors : true,
+				defaultType : 'textfield',
+				items : [{
+					xtype : 'container',
+					layout : 'hbox',
+					defaultType : 'textfield',
+					margin : '0 0 5 0',
+					items : [{
+						fieldLabel : '内容ID或URL',
+						name : 'email',
+						flex : 1,
+					}, {
+						fieldLabel : '内容标题',
+						name : 'phone',
+					}]
+				}]
 			}]
 		}, {
 			/*====================================================================

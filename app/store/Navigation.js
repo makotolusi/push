@@ -28,7 +28,9 @@ Ext.define('Push.store.Navigation', {
                 children: [
                     { id: 'app-list-grid', text: '推送管理', leaf: true },
                     { id: 'push-list', text: '推送列表', leaf: true },
-                    { id: 'panel-header-position', text: 'Header Positioning', leaf: true }
+                    { id: 'menu-manager', text: '菜单项管理', leaf: true },
+                    { id: 'role-manager', text: '角色管理', leaf: true },
+                    { id: 'collection-panels', text: '数据收集', leaf: true }
                 ]
             },
             {
@@ -218,7 +220,7 @@ Ext.define('Push.store.Navigation', {
                 children: [
                     { id: 'dd-field-to-grid', text: 'Field to Grid', leaf: true },
                     { id: 'dd-grid-to-form', text: 'Grid to Form', leaf: true },
-                    { id: 'dd-grid-to-grid', text: 'Grid to Grid', leaf: true }
+                    { id: 'user-menu-role', text: 'Grid to Grid', leaf: true }
                 ]
             },
             {

@@ -112,14 +112,26 @@ Ext.define('Push.view.app.AppList', {
 				sortable : true
 			}, {
 				menuDisabled : true,
-				text : "进入",
+				text : "推送设置",
 				sortable : false,
 				xtype : 'actioncolumn',
-				width : 50,
+				width : 100,
 				items : [{
 					iconCls : 'application-go',
 					id : 'enter',
-					tooltip : '进入',
+					tooltip : '推送设置',
+					handler : 'onEnter'
+				}]
+			}, {
+				menuDisabled : true,
+				text : "数据采集",
+				sortable : false,
+				xtype : 'actioncolumn',
+				width : 100,
+				items : [{
+					iconCls : 'application-go',
+					id : 'enter',
+					tooltip : '推送设置',
 					handler : 'onEnter'
 				}]
 			}],

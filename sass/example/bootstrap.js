@@ -2314,6 +2314,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "ExtThemeNeptune.resizer.Splitter": [],
   "ExtThemeNeptune.toolbar.Paging": [],
   "ExtThemeNeptune.toolbar.Toolbar": [],
+  "KitchenSink.view.collection.CollectionPanel": [],
   "KitchenSink.view.user.LoginForm": [],
   "Push.Application": [],
   "Push.LoginManager": [],
@@ -2323,6 +2324,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Push.model.Base": [],
   "Push.model.Company": [],
   "Push.model.State": [],
+  "Push.model.dd.Simple": [],
   "Push.model.grid.Financial": [],
   "Push.model.grid.ForumThread": [],
   "Push.model.user.User": [],
@@ -2334,6 +2336,9 @@ Ext.ClassManager.addNameAlternateMappings({
   "Push.view.Header": [],
   "Push.view.app.AppList": [],
   "Push.view.app.AppListController": [],
+  "Push.view.collection.CollectionList": [],
+  "Push.view.collection.CollectionTabController": [],
+  "Push.view.collection.CollectionTabs": [],
   "Push.view.form.FieldTypes": [],
   "Push.view.form.HBoxLayoutForm": [],
   "Push.view.form.RadioGroupForm": [],
@@ -2351,7 +2356,11 @@ Ext.ClassManager.addNameAlternateMappings({
   "Push.view.push.PushForm": [],
   "Push.view.push.PushList": [],
   "Push.view.push.PushListTabController": [],
-  "Push.view.push.PushListTabs": []
+  "Push.view.push.PushListTabs": [],
+  "Push.view.user.MenuForm": [],
+  "Push.view.user.MenuManager": [],
+  "Push.view.user.MenuToRole": [],
+  "Push.view.user.RoleManager": []
 });
 Ext.ClassManager.addNameAliasMappings({
   "Ext.AbstractManager": [],
@@ -3680,6 +3689,9 @@ Ext.ClassManager.addNameAliasMappings({
   "ExtThemeNeptune.resizer.Splitter": [],
   "ExtThemeNeptune.toolbar.Paging": [],
   "ExtThemeNeptune.toolbar.Toolbar": [],
+  "KitchenSink.view.collection.CollectionPanel": [
+    "widget.collection-panels"
+  ],
   "KitchenSink.view.user.LoginForm": [
     "widget.user-login"
   ],
@@ -3691,6 +3703,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Push.model.Base": [],
   "Push.model.Company": [],
   "Push.model.State": [],
+  "Push.model.dd.Simple": [],
   "Push.model.grid.Financial": [],
   "Push.model.grid.ForumThread": [],
   "Push.model.user.User": [],
@@ -3717,6 +3730,15 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Push.view.app.AppListController": [
     "controller.app-list-view"
+  ],
+  "Push.view.collection.CollectionList": [
+    "widget.collection-list-grid"
+  ],
+  "Push.view.collection.CollectionTabController": [
+    "controller.collection-tab-view"
+  ],
+  "Push.view.collection.CollectionTabs": [
+    "widget.collection-list-tabs"
   ],
   "Push.view.form.FieldTypes": [
     "widget.form-fieldtypes"
@@ -3769,6 +3791,16 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Push.view.push.PushListTabs": [
     "widget.push-list-tabs"
+  ],
+  "Push.view.user.MenuForm": [],
+  "Push.view.user.MenuManager": [
+    "widget.menu-manager"
+  ],
+  "Push.view.user.MenuToRole": [
+    "widget.user-menu-role"
+  ],
+  "Push.view.user.RoleManager": [
+    "widget.role-manager"
   ]
 });
 Ext.setVersion("ext", "5.0.0.970");
