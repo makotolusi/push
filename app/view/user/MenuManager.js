@@ -67,20 +67,22 @@ Ext.define('Push.view.user.MenuManager', {
 			defaults : {
 				margin : '0 0 10 0'
 			},
-			items : [ {
-					xtype : 'toolbar',
-					items : ['->',{
-						text : '新增菜单项',
-						iconCls : 'add',
-						handler:function(){
-							   	var win=Ext.create('Push.view.user.MenuForm');
-						   	win.show();
-						}
-					}]
-				},{
+			items : [{
+				xtype : 'toolbar',
+				items : ['->', {
+					text : '新增菜单项',
+					iconCls : 'add',
+					handler : function() {
+						var win = Ext.create('Push.view.user.MenuForm', {
+							url : '/web/manageItem/create'
+						});
+						win.show();
+					}
+				}]
+			}, {
 				xtype : 'gridpanel',
 				itemId : 'grid4',
-				scroll :false,
+				scroll : false,
 				store : me.statics().getLocalStore(),
 				columns : [{
 					text : "名称",
@@ -105,11 +107,17 @@ Ext.define('Push.view.user.MenuManager', {
 				}),
 
 				// inline buttons
-				dockedItems : [ {
+				dockedItems : [{
 					xtype : 'toolbar',
 					items : [{
 						text : '新增',
-						iconCls : 'add'
+						iconCls : 'add',
+						handler : function() {
+							var win = Ext.create('Push.view.user.MenuForm', {
+								url : '/web/operation/create'
+							});
+							win.show();
+						}
 					}, '-', {
 						text : '修改',
 						iconCls : 'option'
@@ -117,12 +125,11 @@ Ext.define('Push.view.user.MenuManager', {
 						itemId : 'removeButton',
 						text : '删除',
 						iconCls : 'remove',
-					},'-', {
+					}, '-', {
 						itemId : 'hideButton',
 						text : '隐藏',
 						iconCls : 'remove',
-					}
-					]
+					}]
 				}],
 
 				// frame : true,
@@ -133,4 +140,4 @@ Ext.define('Push.view.user.MenuManager', {
 
 		me.callParent(arguments);
 	}
-}); 
+});

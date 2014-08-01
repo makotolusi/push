@@ -73,7 +73,7 @@ Ext.define('Push.view.user.RoleManager', {
 					text : '新增角色',
 					iconCls : 'add',
 					handler : function() {
-						var win = Ext.create('Push.view.user.MenuForm');
+						var win = Ext.create('Push.view.user.RoleForm');
 						win.show();
 					}
 				}]

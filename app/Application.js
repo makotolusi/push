@@ -3,6 +3,7 @@
  * Ext.application(). This is the ideal place to handle application launch and initialization
  * details.
  */
+var uri='http://localhost:8080/cms';
 Ext.define('Push.Application', {
 	extend : 'Ext.app.Application',
 	name : 'Push',
