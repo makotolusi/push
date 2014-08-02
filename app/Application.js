@@ -14,6 +14,7 @@ Ext.define('Push.Application', {
 	views : ['login.Login', 'form.FieldTypes',
 	 'user.MenuManager', 'user.RoleManager','user.MenuToRole', 
 	 'collection.CollectionList','collection.CollectionTabs','collection.CollectionPanel',
+	 'contentType.ContentTypeList',
 	 'app.AppList', 'push.PushList', 'push.PushListTabs', 'navigation.Breadcrumb', 'Header', 'ContentPanel', 'navigation.Tree', 'grid.ArrayGrid', 'grid.Paging', 'grid.GridPlugins', 'form.HBoxLayoutForm', 'form.RadioGroupForm'],
 
 	controllers : ['Global'

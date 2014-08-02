@@ -28,42 +28,40 @@ Ext.define('Push.store.Navigation', {
                 children: [
                     { id: 'app-list-grid', text: '推送管理', leaf: true },
                     { id: 'push-list', text: '推送列表', leaf: true },
-                    { id: 'menu-manager', text: '菜单项管理', leaf: true },
-                    { id: 'role-manager', text: '角色管理', leaf: true },
                     { id: 'collection-panels', text: '数据收集', leaf: true }
                 ]
             },
             {
-                text: 'Grids',
+                text: '权限管理',
                 id: 'grids',
                 expanded: true,
                 children: [
-                    { id: 'array-grid', text: 'Array Grid', leaf: true },
-                    { id: 'grouped-grid', text: 'Grouped Grid', leaf: true },
-                    { id: 'locking-grid', text: 'Locking Grid', leaf: true },
-                    { id: 'grouped-header-grid', text: 'Grouped Header Grid', leaf: true },
-                    { id: 'multi-sort-grid', text: 'Multiple Sort Grid', leaf: true },
-                    { id: 'progress-bar-pager', text: 'Progress Bar Pager', leaf: true },
-                    { id: 'sliding-pager', text: 'Sliding Pager', leaf: true },
-                    { id: 'xml-grid', text: 'XML Grid', leaf: true },
-                    { id: 'paging-grid', text: 'Paging', leaf: true },
-                    { id: 'grid-plugins', text: 'Grid Plugins', leaf: true },
-                    { id: 'grid-filtering', text: 'Grid Filtering', leaf: true },
-                    { id: 'reconfigure-grid', text: 'Reconfigure Grid', leaf: true },
-                    { id: 'property-grid', text: 'Property Grid', leaf: true },
-                    { id: 'cell-editing', text: 'Cell Editing', leaf: true },
-                    { id: 'row-expander-grid', text: 'Row Expander', leaf: true },
-                    { id: 'big-data-grid', text: 'Big Data', leaf: true },
-                    { id: 'widget-grid', text: 'Widget grid', leaf: true },
-                    { id: 'customer-grid', text: 'Customer/Order grid', leaf: true }
+                       { id: 'menu-manager', text: '菜单项管理', leaf: true },
+                    { id: 'role-manager', text: '角色管理', leaf: true }
+                    // { id: 'locking-grid', text: 'Locking Grid', leaf: true },
+                    // { id: 'grouped-header-grid', text: 'Grouped Header Grid', leaf: true },
+                    // { id: 'multi-sort-grid', text: 'Multiple Sort Grid', leaf: true },
+                    // { id: 'progress-bar-pager', text: 'Progress Bar Pager', leaf: true },
+                    // { id: 'sliding-pager', text: 'Sliding Pager', leaf: true },
+                    // { id: 'xml-grid', text: 'XML Grid', leaf: true },
+                    // { id: 'paging-grid', text: 'Paging', leaf: true },
+                    // { id: 'grid-plugins', text: 'Grid Plugins', leaf: true },
+                    // { id: 'grid-filtering', text: 'Grid Filtering', leaf: true },
+                    // { id: 'reconfigure-grid', text: 'Reconfigure Grid', leaf: true },
+                    // { id: 'property-grid', text: 'Property Grid', leaf: true },
+                    // { id: 'cell-editing', text: 'Cell Editing', leaf: true },
+                    // { id: 'row-expander-grid', text: 'Row Expander', leaf: true },
+                    // { id: 'big-data-grid', text: 'Big Data', leaf: true },
+                    // { id: 'widget-grid', text: 'Widget grid', leaf: true },
+                    // { id: 'customer-grid', text: 'Customer/Order grid', leaf: true }
                 ]
             },
             {
-                text: 'Data Binding',
+                text: '配置管理',
                 id: 'data-binding',
                 expanded: true,
                 children: [
-                    { id: 'binding-hello-world', text: 'Hello World', leaf: true },
+                    { id: 'content-type-list-grid', text: '内容类型', leaf: true },
                     { id: 'binding-dynamic', text: 'Dynamic', leaf: true },
                     { id: 'binding-two-way', text: 'Two Way', leaf: true },
                     { id: 'binding-formulas', text: 'Formulas', leaf: true },
